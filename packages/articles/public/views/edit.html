@@ -10,6 +10,19 @@
             </div>
 
         </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.capacity.$invalid }">
+            <label mean-token="'edit-capacity'" for="capacity" class="col-md-2 control-label">Capacity</label>
+            <div class="col-md-10">
+                <input name="capacity" type="text" class="form-control" data-ng-model="article.capacity" id="capacity" placeholder="Capacity" required>
+                <div ng-show="submitted && articleForm.capacity.$invalid" class="help-block">
+                    <p ng-show="articleForm.capacity.$error.required">Capacity is required</p>
+                </div>
+            </div>
+
+        </div>
+
+
         <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid }">
             <label mean-token="'edit-content'" for="content" class="col-md-2 control-label">Content</label>
             <div class="col-md-10">
