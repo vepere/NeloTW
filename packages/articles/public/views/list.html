@@ -14,8 +14,9 @@
                     </a>
                 </span>
             </h2>
-            <div>{{article.content}}</div>
+            <div>Facilities: {{article.content}}</div>
             <div>Capacitatea de : {{article.capacity}} persoane</div>
+            <div>Tipul camerei : {{article.type}} </div>
         </li>
     </ul>
     <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>

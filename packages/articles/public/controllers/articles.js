@@ -13,7 +13,8 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
             if (isValid) {
                 var article = new Articles({
                     title: this.title,
-                    capacity: this.capacity, 
+                    capacity: this.capacity,
+                    type: this.type, 
                     content: this.content
                 });
                 article.$save(function(response) {
@@ -22,6 +23,7 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
 
                 this.title = '';
                 this.content = '';
+                this.type = '';
                 this.capacity = '';
             } else {
                 $scope.submitted = true;

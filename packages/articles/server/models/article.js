@@ -25,6 +25,11 @@ var ArticleSchema = new Schema({
         default: '',
         trim: true
     },
+    type: {
+        type: String,
+        default: '',
+        trim: true
+    },
     content: {
         type: String,
         default: '',
