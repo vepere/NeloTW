@@ -52,6 +52,7 @@ angular.module('mean').config(['$stateProvider',
                 resolve: {
                     loggedin: checkLoggedin
                 }
-            });
+            })
+            
     }
 ]);

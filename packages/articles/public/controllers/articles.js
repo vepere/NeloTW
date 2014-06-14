@@ -9,6 +9,8 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
             return $scope.global.isAdmin || article.user._id === $scope.global.user._id;
         };
 
+        
+
         $scope.create = function(isValid) {
 
             if (isValid) {
@@ -70,6 +72,7 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
         $scope.find = function() {
             Articles.query(function(articles) {
                 $scope.articles = articles;
+                
             });
         };
 
@@ -82,6 +85,7 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
             });
         };
 
+        
         $scope.book = function(isValid) {
            if(isValid) {
                  var article = $scope.article;
