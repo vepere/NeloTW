@@ -26,7 +26,7 @@ exports.article = function(req, res, next, id) {
 exports.create = function(req, res) {
     var article = new Article(req.body);
     article.user = req.user;
-
+  
     article.save(function(err) {
         if (err) {
             return res.send('users/signup', {
@@ -35,6 +35,8 @@ exports.create = function(req, res) {
             });
         } else {
             res.jsonp(article);
+            
+                
         }
     });
 };
@@ -46,7 +48,7 @@ exports.update = function(req, res) {
     var article = req.article;
 
     article = _.extend(article, req.body);
-
+    console.log("Update mongoose ", article)
     article.save(function(err) {
         if (err) {
             return res.send('users/signup', {
@@ -59,6 +61,24 @@ exports.update = function(req, res) {
     });
 };
 
+
+exports.book = function(req, res) {
+    var article = req.article;
+   
+
+    article = _.extend(article, req.body);
+    console.log("Update mongoose ", article)
+    article.save(function(err) {
+        if (err) {
+            return res.send('users/signup', {
+                errors: err.errors,
+                article: article
+            });
+        } else {
+            res.jsonp(article);
+        }
+    });
+};
 /**
  * Delete an article
  */

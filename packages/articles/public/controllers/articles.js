@@ -10,13 +10,16 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
         };
 
         $scope.create = function(isValid) {
+
             if (isValid) {
                 var article = new Articles({
                     title: this.title,
                     capacity: this.capacity,
                     type: this.type, 
-                    content: this.content
+                    content: this.content,
+                    booked: false
                 });
+                console.log('Create article JSONP --', article);
                 article.$save(function(response) {
                     $location.path('articles/' + response._id);
                 });
@@ -49,13 +52,15 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
         $scope.update = function(isValid) {
             if (isValid) {
                 var article = $scope.article;
+
                 if (!article.updated) {
                     article.updated = [];
                 }
                 article.updated.push(new Date().getTime());
-
+                 console.log("Article Updated", article.updated) 
+                console.log("Article Scope after update", $scope.article)
                 article.$update(function() {
-                    $location.path('articles/' + article._id);
+                    //$location.path('articles/' + article._id);
                 });
             } else {
                 $scope.submitted = true;
@@ -73,7 +78,30 @@ angular.module('mean').controller('ArticlesController', ['$scope', '$stateParams
                 articleId: $stateParams.articleId
             }, function(article) {
                 $scope.article = article;
+                console.log("FIND ONE --- ", $scope.article);
             });
         };
+
+        $scope.book = function(isValid) {
+           if(isValid) {
+                 var article = $scope.article;
+                 article.booked = true;
+
+                 article.$book();
+
+                console.log('This is the book function', $scope.article);
+               
+                // if (!article.updated) {
+                //     article.updated = [];
+                // }
+
+                // $scope.article.booked = true;
+               // article.updated.push(article.booked);   
+               //$scope.update();
+                console.log("Article Updated", article.updated) 
+                console.log("Article Scope after update", $scope.article)
+                $scope.submitted = true;
+            }
+        }
     }
 ]);

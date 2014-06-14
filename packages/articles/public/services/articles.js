@@ -8,6 +8,9 @@ angular.module('mean').factory('Articles', ['$resource',
 		}, {
 			update: {
 				method: 'PUT'
+			},
+			book: {
+				method: 'PUT'
 			}
 		});
 	}

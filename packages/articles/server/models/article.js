@@ -3,6 +3,8 @@
 /**
  * Module dependencies.
  */
+
+ // ORM object -- mongoose 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
@@ -38,6 +40,11 @@ var ArticleSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
+    },
+    booked: {
+        type: Boolean,
+        default: '',
+        trim: true
     }
 });
 
