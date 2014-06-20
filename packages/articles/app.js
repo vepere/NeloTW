@@ -27,7 +27,11 @@ Articles.register(function(app, auth, database) {
         'title': 'Create New Article',
         'link': 'create article'
     });
-
+    Articles.menus.add({
+        'roles': ['authenticated'],
+        'title': 'My Bookings',
+        'link': 'View My Bookins'
+    });
     /*
     //Uncomment to use. Requires meanio@0.3.7 or above
     // Save settings with callback
@@ -46,6 +50,15 @@ Articles.register(function(app, auth, database) {
     });
     */
     Articles.aggregateAsset('css', 'articles.css');
+   // Articles.aggregateAsset('css', 'bootstrap.css');
+
+
+    Articles.aggregateAsset('js', 'datePicker.js',{global:true} );
+    Articles.aggregateAsset('js', 'dateRange.js', {global:true});
+    Articles.aggregateAsset('js', 'input.js', { global: true });
+
+    Articles.aggregateAsset('templates', 'datepicker.html', { global: true });
+    Articles.aggregateAsset('templates', 'daterange.html', { global: true });
 
     return Articles;
 });
