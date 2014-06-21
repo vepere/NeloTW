@@ -1,10 +1,19 @@
 {% for file in assets.core.js %}
     <script type="text/javascript" src="{{file}}"></script>
+    <script src="public/system/assets/js/jquery.min.js"></script>
+    <script src="public/system/assets/js/jquery.flexslider.js"></script>
+    <script src="public/system/assets/js/fwslider.js"></script>
+    <script src="public/system/assets/js/jquery.bxslider.js"></script>
+    <script src="public/system/assets/js/jquery.bxslider.min.js"></script>
+    <script src="public/system/assets/js/jquery.flexisel.js"></script>
+    <script src="public/system/assets/js/jquery.flexslider-min.js"></script>
+
 {% endfor %}
 
 {% if (process.env.NODE_ENV == 'development') %}
     <!-- Livereload script rendered -->
     <script type="text/javascript" src="{{'http://' + req.host + ':35729/livereload.js'}}"></script>
+    
 {% endif %}
 
 <script type="text/javascript" src="/modules/aggregated.js"></script>
